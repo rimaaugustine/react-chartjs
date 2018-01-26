@@ -15,6 +15,7 @@ import Chip from 'material-ui/Chip';
 //import {Bar} from 'react-chartjs-2';
 import RaisedButton from 'material-ui/RaisedButton';
 
+
 import axios from 'axios';
 import Chart from './chart.js'
 
@@ -43,8 +44,8 @@ const titleStyles = {
 
 
 class App extends Component {
+ 
   
-
   render() {
 //want to iterate the date from api 
 
@@ -52,7 +53,9 @@ class App extends Component {
     const rightButtons = (
       <div>
         <div className="flex-container">
-        <Chip style={styles.chip} >kWh</Chip> <Chip style={styles.chip} >Day</Chip>
+    
+        <Chip style={styles.chip} >kWh</Chip> <Chip style={styles.chip}  >Day</Chip>
+       
         </div>
       </div>
     );
@@ -66,9 +69,9 @@ class App extends Component {
  //return HTML
 
     return (
-      <div>
+   
      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)} >
-  
+     <div>
      <AppBar name= "stylesOverriding"
             title={<span style={titleStyles.title}>Household Total</span>} titleStyle={titleStyles.color}
             style={{backgroundColor: "#37474F"}}
@@ -76,30 +79,21 @@ class App extends Component {
             iconElementRight={rightButtons}
      />
      
-      <Card style={{backgroundColor: "#37474F"}}>
-      <div>
-
-      <div className="flex-container">
-      <CardTitle title={<span style={{fontSize: "40px"}}>93</span>} subtitle="Current Power in kW" />
-      <CardTitle title={<span style={{fontSize: "40px"}}>93</span>} subtitle="Current Solarpower in kW" />
-      <CardTitle title={<span style={{fontSize: "40px"}}>93</span>} subtitle="Consumption in kWh" />
-      <CardTitle title={<span style={{fontSize: "40px"}}>93</span>} subtitle="Production in kWh"/>
-      </div>
-      <br/>
-      <br/>
-      
       <Chart />
     
-      </div>
-      </Card>
+    
+     
       <br />
       <RaisedButton label="Update" primary={true}  />  
+      
+      </div>
 
+      
       </MuiThemeProvider>
       
-         
+        
      
-      </div>
+   
     );
   }
 }
