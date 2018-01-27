@@ -5,4 +5,11 @@
   text-align: center;
   align-items: flex-start;
   align-content: space-around;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.date-picker{
+  margin-left: 15px;
+  text-align: center;
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Request from 'superagent';
 import './App.css';
 import '../node_modules/react-vis/dist/style.css';
 
 import {Bar} from 'react-chartjs-2';
 import axios from 'axios';
 import DatePicker from 'material-ui/DatePicker';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
+
 
 
 class Chart extends Component {
@@ -139,8 +139,8 @@ class Chart extends Component {
         backgroundColor: 'rgba(85,139,47,0.5)',
         borderColor: 'rgba(133,187,92,0.6)',
         borderWidth: 2,
-        hoverBackgroundColor: 'rgba(133,187,92,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBackgroundColor: 'rgba(133,187,92,0.6)',
+        hoverBorderColor: 'rgba(133,187,92,0.6)',
         data: this.state.DataChartPV,
         stack: 2
       }
@@ -158,54 +158,56 @@ class Chart extends Component {
         <CardTitle title={<span style={{fontSize: "40px"}}>{this.state.totalC}</span>} subtitle="Consumption in kWh" />
         <CardTitle title={<span style={{fontSize: "40px"}}>{this.state.totalP}</span>} subtitle="Production in kWh"/>
         </div>
-        <br/>
+    
       <div>
-          <DatePicker hintText="Date" 
+        <div >
+          <DatePicker className="date-picker" hintText="Date" 
           onChange={this.handleChangeDate}
           minDate={this.state.minDate}
           maxDate={this.state.maxDate}
           defaultDate={this.state.defaultDate}
           disableYearSelection={this.state.disableYearSelection}
-           />   
-     <Bar
-          data={data}
-          options={{
-            maintainAspectRatio: false,
-            legend: {
-              labels: {
-                  // This more specific font property overrides the global property
-                  fontColor: '#bdbdbd'
+         
+           />  
+           </div> 
+           <div>
+        <Bar
+              data={data}
+              options={{
+                maintainAspectRatio: false,
+                legend: {
+                  labels: {
+                      fontColor: '#bdbdbd'
+                  }
+                },
+                scales:{
+                  xAxes: [{
+                  stacked: true,
+                  ticks: {
+                    fontColor: '#bdbdbd',
+                    fontSize: 12,
+                  },
+                  gridLines: {
+                    color: "rgba(0, 0, 0, 0)",  
+                  }
+                  }],
+                  yAxes: [{
+                  stacked: true,
+                  ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 20,
+                    fontColor: '#bdbdbd',
+                    fontSize: 12,
+                  },
+                  }]
               }
-            },
-            scales:{
-              xAxes: [{
-              stacked: true,
-              ticks: {
-                fontColor: '#bdbdbd',
-                fontSize: 12,
-              },
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",  
-              }
-              }],
-              yAxes: [{
-              stacked: true,
-              ticks: {
-                beginAtZero: true,
-                min: 0,
-                max: 20,
-                fontColor: '#bdbdbd',
-                fontSize: 12,
-              },
-              }]
-          }
-          }}
-        /> 
+              }}
+            /> 
         </div>
         </div>
-        </Card>
-        
-          
+        </div>
+        </Card>    
     
     );
   }

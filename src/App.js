@@ -7,16 +7,14 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import * as Colors from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import ImageFlashOn from 'material-ui/svg-icons/image/flash-on';
 import Chip from 'material-ui/Chip';
 //import {Bar} from 'react-chartjs-2';
-import RaisedButton from 'material-ui/RaisedButton';
 
 
-import axios from 'axios';
+
 import Chart from './chart.js'
 
 const styles = {
@@ -80,11 +78,9 @@ class App extends Component {
      />
      
       <Chart />
-    
-    
      
       <br />
-      <RaisedButton label="Update" primary={true}  />  
+  
       
       </div>
 
