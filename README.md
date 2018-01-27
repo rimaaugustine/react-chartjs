@@ -30,11 +30,7 @@ npm start
 open http://localhost:3000
 ```
 
-And repeat
 
-```
-until finished
-```
 
 
 ## Built With
@@ -47,6 +43,6 @@ until finished
 
 ## Authors
 
-* **Rima Augustine* - *Initial work* - [rimaaugustine](https://github.com/rimaaugustine)
+* **Rima Augustine* - [rimaaugustine](https://github.com/rimaaugustine)
 
 
