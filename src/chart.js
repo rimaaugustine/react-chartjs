@@ -83,12 +83,12 @@ class Chart extends Component {
     });
   };
 
-  
+  //axios.get('https://json-qjdmnnqtil.now.sh/')
   componentWillMount() {
-    axios.get('https://json-qjdmnnqtil.now.sh/')
+    axios.get('https://json-xvuwofaovi.now.sh/')
     .then(res => {
       const dataJson = res.data;
-      const filtered = dataJson.filter(item => this.filterbyDate(item.date, "2016", "01", "01"))
+      const filtered = dataJson.filter(item => this.filterbyDate(item.date, "2016", "12", "31"))
       const consumption = filtered[0].hours.map( item => item.Value)
       const pv = filtered[0].hours.map( item => item.pv)
       const ev = filtered[0].hours.map( item => item.ev)
@@ -114,6 +114,16 @@ class Chart extends Component {
   
   
   render() {
+    /*
+    {
+        label: 'Electric Vehicle',
+        backgroundColor: '#58a5f0',
+        hoverBackgroundColor: '#58a5f0',
+        hoverBorderColor: '#58a5f0',
+        data: this.state.DataChartVehicle,
+        stack: 1
+      },
+     */
     const data = {
     labels: [0,1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
     datasets: [
@@ -125,14 +135,7 @@ class Chart extends Component {
         data:  this.state.DataChartConsumption,
         stack: 1
       },
-      {
-        label: 'Electric Vehicle',
-        backgroundColor: '#58a5f0',
-        hoverBackgroundColor: '#58a5f0',
-        hoverBorderColor: '#58a5f0',
-        data: this.state.DataChartVehicle,
-        stack: 1
-      },
+      
       {
         label: 'Photovaltaics',
         type: 'bar',
@@ -152,12 +155,12 @@ class Chart extends Component {
         <Card style={{backgroundColor: "#37474F"}}>
         <div>
   
-        <div className="flex-container">
+      {/*  <div className="flex-container">
         <CardTitle title={<span style={{fontSize: "40px"}}>0</span>} subtitle="Current Power in kW" />
         <CardTitle title={<span style={{fontSize: "40px"}}>0</span>} subtitle="Current Solarpower in kW" />
         <CardTitle title={<span style={{fontSize: "40px"}}>{this.state.totalC}</span>} subtitle="Consumption in kWh" />
         <CardTitle title={<span style={{fontSize: "40px"}}>{this.state.totalP}</span>} subtitle="Production in kWh"/>
-        </div>
+        </div> */}
     
       <div>
         <div >
@@ -167,7 +170,7 @@ class Chart extends Component {
           maxDate={this.state.maxDate}
           defaultDate={this.state.defaultDate}
           disableYearSelection={this.state.disableYearSelection}
-         
+    
            />  
            </div> 
            <div>
